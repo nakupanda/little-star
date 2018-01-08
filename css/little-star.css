@@ -1,0 +1,19 @@
+.little-star {
+    cursor: pointer;
+    font-size: 14px;
+}
+.little-star.readonly {
+    cursor: auto;
+}
+.little-star .little-star-star {
+    margin-right: 2px;
+}
+.little-star.stars-1 {
+    color: red;
+}
+.little-star.stars-2, .little-star.stars-3 {
+    color: orange;
+}
+.little-star.stars-4, .little-star.stars-5 {
+    color: green;
+}
