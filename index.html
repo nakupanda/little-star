@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/little-star.css" rel="stylesheet" type="text/css" />
+        <script src="js/little-star.js"></script>
+        <meta charset="utf-8" />
+        <title>Little-star examples</title>
+    </head>
+    <body style="padding-bottom: 100px;">
+        <div class="container">
+            <!-- Examples -->
+            <a name="examples"></a>
+            <h2>Examples</h2>
+            <p>
+                This example page is simple enough, it shows only few examples. Explore the source code to find out more usages that you can imagine.
+            </p>
+            <hr />
+
+            <h3>Simplest - jQuery Plugin fashion</h3>
+            <p>
+                <span id="example-simplest-jquery"></span>
+            </p>
+            <div class="source-code runnable">
+                <!--
+                $('#example-simplest-jquery').littlestar({
+                    stars: 3,
+                    max: 5
+                });
+                -->
+            </div>
+
+            <h3>Simplest - OOP fashion</h3>
+            <p>
+                <span id="example-simplest-oop"></span>
+            </p>
+            <div class="source-code runnable">
+                <!--
+                var littlestar = new LittleStar({
+                    stars: 3,
+                    max: 5
+                });
+                var $container = $('#example-simplest-oop');
+                $container.html(littlestar.getView());
+                -->
+            </div>
+
+            <h3>Rating</h3>
+            <p>
+                <span id="example-rating"></span>
+            </p>
+            <div class="source-code runnable">
+                <!--
+                $('#example-rating').littlestar({
+                    stars: 3,
+                    max: 5,
+                    readonly: false
+                });
+                -->
+            </div>
+            
+            <h3>Get stars</h3>
+            <p>
+                <span id="example-rating-get-stars"></span>
+                <br />
+                Thinking... <input type="text" id="example-rating-get-stars-rating" readonly="" />
+            </p>
+            <div class="source-code runnable">
+                <!--
+                $('#example-rating-get-stars').littlestar({
+                    stars: 3,
+                    max: 5,
+                    readonly: false,
+                    onRating: function(stars) {
+                        $('#example-rating-get-stars-rating').val(stars);
+                    },
+                    onRated: function(prevStars, stars) {
+                        alert('Previous stars: ' + prevStars + ', final rated stars ' + stars);
+                    }
+                });
+                -->
+            </div>
+            
+            <h3>More stars</h3>
+            <p>
+                Many stars in the sky. Style them by specifying CSS rules.
+            </p>
+            <p>
+                <span id="example-more-stars"></span>
+            </p>
+            <div class="source-code runnable">
+                <!--
+                $('#example-more-stars').littlestar({
+                    stars: 3,
+                    max: 100,
+                    readonly: false
+                });
+                -->
+            </div>
+
+            <hr />
+            <footer class="text-center"><a href="https://github.com/nakupanda/little-star">Go to the project.</a> | <a href="mailto:javanoob@hotmail.com">Contact me</a> if you can help to improve this example page.</footer>
+        </div>
+
+                    <script type="text/javascript">
+        $(function () {
+        $('.source-code').each(function (index) {
+        var $section = $(this);
+var code = $(this).html().replace('<!--', '').replace('-->', '');
+        // Code preview
+        var $codePreview = $('<pre class="prettyprint lang-javascript"></pre>');
+        $codePreview.text(code);
+        $section.html($codePreview);
+        // Run code
+        if ($section.hasClass('runnable')) {
+        var $button = $('<button class="btn btn-primary">Run the code</button>');
+        $button.on('click', {code: code}, function (event) {
+        eval(event.data.code);
+        });
+        $button.insertAfter($section);
+        $button.trigger('click');
+      $button.hide();
+            $('<div class="clearfix" style="margin-bottom: 10px;"></div>').insertAfter($button);
+        }
+    });
+});
+        </script>
+    </body>
+</html>
